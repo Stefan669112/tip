@@ -5,3 +5,5 @@ dist
 dev-dist
 .env
 package-lock.json
+.cursorrules
+.history
