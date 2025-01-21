@@ -13,6 +13,7 @@ import RecentPlays from './sections/RecentPlays/RecentPlays'
 import Toasts from './sections/Toasts'
 import { MainWrapper, TosInner, TosWrapper } from './styles'
 import { TOS_HTML } from './constants'
+import  Providers from './providers/Providers'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -50,8 +51,10 @@ function ErrorHandler() {
 export default function App() {
   const newcomer = useUserStore((state) => state.newcomer)
   const set = useUserStore((state) => state.set)
+  const cookie = document.cookie
   return (
     <>
+      <Providers cookie={cookie}>
       {newcomer && (
         <Modal>
           <h1>Welcome</h1>
@@ -76,8 +79,9 @@ export default function App() {
           <Route path="/:gameId" element={<Game />} />
         </Routes>
         <h2 style={{ textAlign: 'center' }}>Recent Plays</h2>
-        <RecentPlays />
-      </MainWrapper>
+          <RecentPlays />
+        </MainWrapper>
+      </Providers>
     </>
-  )
+  );
 }

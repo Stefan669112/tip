@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Modal } from '../components/Modal'
 import TokenSelect from './TokenSelect'
 import { UserButton } from './UserButton'
+import { ConnectBtn } from '../components/ConnectButton'
 
 const Bonus = styled.button`
   all: unset;
@@ -102,7 +103,8 @@ export default function Header() {
             </Bonus>
           )}
           <TokenSelect />
-          <UserButton />
+          <ConnectBtn />
+          {/* <UserButton /> */}
         </div>
       </StyledHeader>
     </>
